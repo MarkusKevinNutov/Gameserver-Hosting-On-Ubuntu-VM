@@ -36,13 +36,20 @@ Key Features and Uses:
 •	Isolated Environment: Guest OSs are completely isolated from the host machine, making it ideal for testing software or running suspicious applications safely.
 •	Hardware Virtualization: Uses modern CPU features to provide near-native performance. 
 
+
 2.2	Setting up ubuntu VM
+
 2.2.1	What is ubuntu?
+
 Ubuntu is a free, open-source Linux operating system based on Debian, known for its user-friendliness, stability, and security. Developed by Canonical and a global community, it is popular for desktops, servers, cloud computing, and IoT. It offers a modern interface, pre-installed apps, and is widely used by developers.
+
 2.2.2	Download Ubuntu Server version 24.04.4 LTS
+
 Before starting anything you need to download the file from theyr official site: https://ubuntu.com/download/server
 The latest LTS version of Ubuntu Server. LTS stands for long-term support — which means five years of free security and maintenance updates, extended to up to 15 years with Ubuntu Pro.
+
 2.2.3	Setting up Ubuntu Server Virtual Machine
+
 We start with creating a new virtual machine, so for that press New -> name it wathever and set Type and Version to Linux and Ubuntu (64-bit).
 I recommend for smoother experience to use 2 vCPUs (Processors)  and  3GB  or 3072 MB (im going to use 8GB). For disk size it is recommended 25GB to 50GB.
 <img width="945" height="580" alt="image" src="https://github.com/user-attachments/assets/86faaec9-701d-4536-b616-6222327df8ff" />
@@ -52,7 +59,9 @@ Now that we have it setup, we need to insert the server iso file into this vm. F
  
 And in Network  set you’re Adapter 1 to Bridged Adapter.
  
+
 2.3	Install the machine
+
 Choose your language
  
 For the type of installation choose only Ubuntu Server
