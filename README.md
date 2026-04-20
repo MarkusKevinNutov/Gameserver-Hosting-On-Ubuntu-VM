@@ -64,6 +64,8 @@ I recommend for smoother experience to use 2 vCPUs (Processors)  and  3GB  or 30
 
  
 Now that we have it setup, we need to insert the server iso file into this vm. For that navigate to Storage -> Controller: IDE -> Empty disk  and on the right side next to Optical Drive theres a blue disk, click on it and choose  ubuntu-24.04.4-live-server-amd64.
+<img width="622" height="448" alt="image" src="https://github.com/user-attachments/assets/f37ecd7d-16a4-4e28-acfe-61125ce3cd32" />
+
  
 And in Network  set you’re Adapter 1 to Bridged Adapter.
  
