@@ -8,14 +8,18 @@ Running a Minecraft server on Linux provides a leaner, more stable environment c
 1.1	Resource Efficiency & Performance
 
 Windows environments are built for user interaction, which means they carry significant "bloat” background services, telemetry, and a mandatory Graphical User Interface (GUI).
+
 •	Headless Advantage: Most Linux servers run "headless" (command-line only). This frees up hundreds of megabytes of RAM and significant CPU cycles that would otherwise be wasted on rendering a desktop.
+
 •	Java Optimization: Linux manages Java threads more natively, often resulting in lower "garbage collection" spikes and smoother gameplay for your players.
 
 
 1.2	Professional Management Tooling
 
 Linux is the native home of modern DevOps tools. If you plan on scaling your community, Linux provides the infrastructure to do it properly.
+
 •	Containerization: Using Docker allows you to "wrap" your server in a consistent environment, making backups, migrations, and deployments effortless.
+
 •	Automation: Through Bash scripting and Cron jobs, you can automate everything from world backups to auto-restarts and plugin updates.
 
 1.3	Cost-Effectivness
@@ -31,9 +35,13 @@ Oracle VirtualBox is a free, open-source hypervisor that enables users to run mu
 
 Key Features and Uses:
 •	Cross-Platform: Runs on Windows, Linux, macOS, and Solaris hosts.
+
 •	Versatility: Supports a wide range of guest operating systems, including older versions.
+
 •	Snapshot System: Users can create snapshots to save the state of a VM, allowing them to revert to a previous state instantly.
+
 •	Isolated Environment: Guest OSs are completely isolated from the host machine, making it ideal for testing software or running suspicious applications safely.
+
 •	Hardware Virtualization: Uses modern CPU features to provide near-native performance. 
 
 
@@ -137,7 +145,9 @@ Separate your VMs. Host the Minecraft Server and Zabbix Agent on one instance, a
 The Reasoning:
 
 •	Performance: Minecraft relies on consistent "ticks." Database housekeeping (SQL writes/logs) causes micro-stuttering and TPS drops if hosted on the same CPU or Disk.
+
 •	Stability: If the monitoring database fills the disk or crashes the OS, your game world remains online and uncorrupted.
+
 •	Simplicity: Using a lightweight Zabbix Agent on the game server captures all necessary metrics (RAM, CPU, player counts) without the heavy resource footprint of the full Zabbix suite.
 
 
@@ -321,8 +331,11 @@ You need to tell the VM which server is allowed to request data.
 
 Open the configuration file sudo nano /etc/zabbix/zabbix_agent2.conf , locate and configure following parameters:
 
+
 •	Server: Set this to the IP address of your Zabbix Server.
+
 •	ServerActive: Set this to the IP address of your Zabbix Server.
+
 •	Hostname: Set this to the exact name of the VM (this must match the name you use later in the Zabbix Web UI).
 
 After that save the file and restart the agent to apply changes
@@ -331,12 +344,19 @@ The Zabbix Server communicates with the Agent via port 10050. You must open this
  
 Now, head to your Zabbix Server dashboard in your browser.
 1.	Go to Data collection > Hosts.
+
 2.	Click Create host in the top right.
+
 3.	Host name: Must exactly match the Hostname you typed in the config file.
+
 4.	Templates: Search for and select Linux by Zabbix agent.
+
 5.	Host groups: Select a group (e.g., Virtual machines or Linux servers).
+
 6.	Interfaces: Click Add > Agent.
+
 o	Enter the IP address of the target VM.
+
 7.	Click Add.
  
 
