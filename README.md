@@ -1,24 +1,33 @@
 # Gameserver-Hosting-On-Ubuntu
 This project provides a comprehensive, enterprise-grade guide for hosting a high-performance Minecraft server on Ubuntu 24.04 LTS. It focuses on maximizing resource efficiency, professional-grade monitoring, and secure networking without the need for traditional port forwarding.
 
-1	WHY LINUX IS THE STANDARD FOR MINECRAFT HOSTING
+1	WHY LINUX IS THE STANDARD FOR MINECRAFT HOSTING?
 
 Running a Minecraft server on Linux provides a leaner, more stable environment compared to Windows. By eliminating the graphical overhead and prioritizing process efficiency, Linux ensures that your hardware is focused on one thing: maintaining 20 Ticks Per Second (TPS).
+
 1.1	Resource Efficiency & Performance
+
 Windows environments are built for user interaction, which means they carry significant "bloat” background services, telemetry, and a mandatory Graphical User Interface (GUI).
 •	Headless Advantage: Most Linux servers run "headless" (command-line only). This frees up hundreds of megabytes of RAM and significant CPU cycles that would otherwise be wasted on rendering a desktop.
 •	Java Optimization: Linux manages Java threads more natively, often resulting in lower "garbage collection" spikes and smoother gameplay for your players.
 
+
 1.2	Professional Management Tooling
+
 Linux is the native home of modern DevOps tools. If you plan on scaling your community, Linux provides the infrastructure to do it properly.
 •	Containerization: Using Docker allows you to "wrap" your server in a consistent environment, making backups, migrations, and deployments effortless.
 •	Automation: Through Bash scripting and Cron jobs, you can automate everything from world backups to auto-restarts and plugin updates.
+
 1.3	Cost-Effectivness
+
 Simply put, Linux is free. Windows Server licenses can add a significant "tax" to your hosting costs. By choosing Linux, every dollar / euro of your budget goes directly toward better hardware—faster CPUs and NVMe storage—rather than software licensing.
  
 2	TESTING OUT IN VIRTUALBOX
+
 2.1	What is Virtualbox & Virtual Machine?
+
 Oracle VirtualBox is a free, open-source hypervisor that enables users to run multiple, separate operating systems (guests) simultaneously on a single physical computer (host). It creates virtual machines (VMs) that simulate hardware, allowing, for example, Linux or Windows to run inside a window on a macOS desktop. A virtual machine (VM) is a software-based emulation of a physical computer that runs on a host machine, acting as an isolated "guest" computer with its own CPU, memory, and storage
+
 Key Features and Uses:
 •	Cross-Platform: Runs on Windows, Linux, macOS, and Solaris hosts.
 •	Versatility: Supports a wide range of guest operating systems, including older versions.
