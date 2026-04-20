@@ -33,6 +33,8 @@ The latest LTS version of Ubuntu Server. LTS stands for long-term support — wh
 2.2.3	Setting up Ubuntu Server Virtual Machine
 We start with creating a new virtual machine, so for that press New -> name it wathever and set Type and Version to Linux and Ubuntu (64-bit).
 I recommend for smoother experience to use 2 vCPUs (Processors)  and  3GB  or 3072 MB (im going to use 8GB). For disk size it is recommended 25GB to 50GB.
+<img width="945" height="580" alt="image" src="https://github.com/user-attachments/assets/86faaec9-701d-4536-b616-6222327df8ff" />
+
  
 Now that we have it setup, we need to insert the server iso file into this vm. For that navigate to Storage -> Controller: IDE -> Empty disk  and on the right side next to Optical Drive theres a blue disk, click on it and choose  ubuntu-24.04.4-live-server-amd64.
  
