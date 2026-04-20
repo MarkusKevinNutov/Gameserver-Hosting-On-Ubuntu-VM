@@ -111,15 +111,18 @@ GNOME (GNU Network Object Model Environment) is the default graphical user inter
 
 First of all we are going to update our systems package list using command: sudo apt update.
 If you dont want to always insert your password after using sudo just log into the administrator account using command  sudo su.
- 
+ <img width="945" height="265" alt="image" src="https://github.com/user-attachments/assets/a9c40c5c-a467-488a-a8c9-a250c0e28858" />
+
 
 After updating we’re gonna use command sudo apt install ubuntu-gnome-desktop
 Press  Y  to continue
 After the installation completed use command Reboot to reboot the virtual machine.
 And now our Ubuntus Interface should look like this.
- 
+ <img width="945" height="484" alt="image" src="https://github.com/user-attachments/assets/db5ef8c4-830b-4f10-9755-fc6d8813a170" />
+
 And when you login
- 
+ <img width="945" height="501" alt="image" src="https://github.com/user-attachments/assets/d37883b6-83e1-4a24-8963-ffedf93cdfb0" />
+
  
 
 3	SETTING UP MONITORING SOFTWARE
@@ -135,11 +138,14 @@ First things first go to this website:
 https://www.zabbix.com/download?zabbix=7.0&os_distribution=ubuntu&os_version=24.04&components=server_frontend_agent&db=mysql&ws=apache
 
 And under Product we’re gonna choose Zabbix Packages. For platform choose options from the picture below.
- 
+ <img width="945" height="406" alt="image" src="https://github.com/user-attachments/assets/2601faa8-fc0c-440b-8fdb-fded0b61689b" />
+
 Install Zabbix repository using following commands:
- 
+ <img width="945" height="111" alt="image" src="https://github.com/user-attachments/assets/ef9a90d2-afc3-4087-b73e-76fd558f2ac0" />
+
 After installing Zabbix repository we’re gonna have to also install Zabbix server, frontend and agent 2. 
- 
+ <img width="945" height="81" alt="image" src="https://github.com/user-attachments/assets/e3f7d8ba-14cc-400c-b627-f3676279a480" />
+
 
 
 
@@ -171,39 +177,51 @@ Zero-lag monitoring. You get professional-grade observability without sacrificin
 
 3.2.3	MySQL & Installation
 Create another Ubuntu 24.04 server for monitoring. There we will only install Zabbix Server and Database (MySQL) and on the Virtual Machine where we’re hosting minecraft we will only install the Zabbix Agent 2. All the command you will find on the zabbix product download page.
- 
+ <img width="945" height="99" alt="image" src="https://github.com/user-attachments/assets/8026eb9a-ade6-4f6b-b43b-f13f922e75f3" />
+
 MySQL is a popular, open-source Relational Database Management System (RDBMS) that organizes data into tables with rows and columns. It uses Structured Query Language (SQL) to add, access, and process data, and is known for being fast, reliable, and scalable, often used in web application development (e.g., LAMP stack).
 To install it, update the package index on your server if you’ve not done so recently
- 
+ <img width="945" height="197" alt="image" src="https://github.com/user-attachments/assets/0e692507-44d1-4981-b99d-bfcf8b68120f" />
+
 (Monitoring VM) Then install the mysql-server package
- 
+ <img width="945" height="72" alt="image" src="https://github.com/user-attachments/assets/7c41f204-4c9d-479a-9d8e-ab6c82f7665b" />
+
 Press  Y  to continue
 Ensure that the server is running using sudo systemctl status mysql
+<img width="945" height="462" alt="image" src="https://github.com/user-attachments/assets/2949f826-74ff-4ade-9dba-a4000d3c6ba0" />
  
 Now to configure MySQL
 Use command sudo mysql_secure_installation to run the script
 Press  Y to setup validate password component. 
 Set the password validation policy to STRONG  (nr.2)
- 
+ <img width="945" height="325" alt="image" src="https://github.com/user-attachments/assets/3f7d9c35-bd9a-4ef4-9d76-69cb5cc2f514" />
+
 Press Y to everything it asks of you
 Use command sudo mysql to enter mysql
- 
+ <img width="945" height="426" alt="image" src="https://github.com/user-attachments/assets/460ab9d3-c324-48ef-a76c-045b7961c495" />
+
 Using status  command, we can check the status of our database
+<img width="945" height="530" alt="image" src="https://github.com/user-attachments/assets/c5e5e4e7-faf8-4f57-8278-60cfe7d15434" />
  
 (Monitoring VM) Now we’re gonna create initial database
 Run the following on your database host
- 
+ <img width="945" height="171" alt="image" src="https://github.com/user-attachments/assets/695e002b-3522-4601-a8e1-00121b718139" />
+<img width="945" height="396" alt="image" src="https://github.com/user-attachments/assets/5886285b-a27e-4501-8ce3-eca4931a06d1" />
+
  
 (Monitoring VM) On Zabbix server host import initial schema and data. You will be prompted to enter your newly created password
- 
+ <img width="945" height="61" alt="image" src="https://github.com/user-attachments/assets/7d3ca267-3a40-4bbb-ba06-cdc402591b65" />
+
 (Monitoring VM) Disable log_bin_trust_function_creators option after importing database schema
- 
+ <img width="945" height="375" alt="image" src="https://github.com/user-attachments/assets/8524c22a-0f10-4e82-93c4-3abca2751afb" />
+
 (Monitoring VM) Configure the database for Zabbix server
 Edit file /etc/zabbix/zabbix_server.conf
 Use command nano /etc/zabbix/zabbix_server.conf to edit the file
 Use CTRL+W to easily find DBPassword location in this file
 Remove # from it and insert password that you made in mysql
- 
+ <img width="861" height="370" alt="Kuvatõmmis 2026-04-03 202511" src="https://github.com/user-attachments/assets/a7f2c779-4e32-40c4-84a0-d2200ba40c02" />
+
 Use CTRL+X to save and exit the file
 
 3.3	What is Web Server?
@@ -214,34 +232,45 @@ A web server is a system comprising computer hardware and software that stores w
 
 NGINX (pronounced "engine-x") is a high-performance, open-source web server, reverse proxy, load balancer, and HTTP cache. Designed for maximum speed and stability, it handles thousands of concurrent connections efficiently using an event-driven architecture, making it ideal for high-traffic websites and reducing server load.
 (Monitoring VM) In ubuntu browser search up localhost and you should get this
- 
+ <img width="945" height="248" alt="image" src="https://github.com/user-attachments/assets/b9b130b1-1474-4a3c-a328-fa2a48ff39be" />
+
 This means that nginx has downloaded successfully and its working.
 Navigate to Nginx enabled site
 Remove default configuration
- 
+ <img width="945" height="83" alt="image" src="https://github.com/user-attachments/assets/17470c36-54d9-466d-9a8f-912497ee9822" />
+
 Enable Zabbix configuration and test configuration
- 
+ <img width="945" height="144" alt="image" src="https://github.com/user-attachments/assets/7a323e8c-64ce-475c-b0f6-bc23d26b1f5f" />
+
 Restart nginx
- 
+ <img width="945" height="55" alt="image" src="https://github.com/user-attachments/assets/add2e63f-f5a5-4507-94e1-81bb228deb79" />
+
 (Monitoring VM) Start Zabbix server 
 (Game Server) and agent processes
- 
+ <img width="945" height="182" alt="image" src="https://github.com/user-attachments/assets/06a9c2db-0aa7-4c3c-926c-f2f50e3e5162" />
+
 Refresh your browser and Zabbix should show up
 Choose your prefer language
+<img width="945" height="507" alt="image" src="https://github.com/user-attachments/assets/5af30a9b-18f1-45c3-8a5d-d466ea5eebe9" />
 
  
 Press Next step
+<img width="945" height="494" alt="image" src="https://github.com/user-attachments/assets/1b140eb3-3328-4a01-82ea-da0808fc4436" />
 
  
 Configure Database connection
- 
+ <img width="945" height="504" alt="image" src="https://github.com/user-attachments/assets/e413f81f-ba4f-4116-b65f-81d1c0527d50" />
+
 
 Choose a name for your Zabbix server and set default time zone, press Next step and Install
- 
+ <img width="945" height="504" alt="image" src="https://github.com/user-attachments/assets/82829bd3-e63e-4550-b7a2-5ee27e562895" />
+
 Login to Zabbix
- 
+ <img width="611" height="541" alt="image" src="https://github.com/user-attachments/assets/d76f8d66-432b-495c-993f-ebdf15278ac3" />
+
 Zabbix is now setup and working
- 
+ <img width="945" height="501" alt="image" src="https://github.com/user-attachments/assets/04240d6f-4aa3-408f-9327-fac30266c163" />
+
 
 4	SETTING UP THE AGENT
 
