@@ -283,35 +283,46 @@ The tool is highly regarded for being lightweight and user-friendly, providing a
 4.2	Setting up Playit.gg
 
 Open up Firefox or whatever browser you’re using in ubuntu and search playit.gg
- 
+ <img width="945" height="504" alt="image" src="https://github.com/user-attachments/assets/3dca6135-2a17-4039-b07d-8d7f4acd891a" />
+
 Go to Downloads and copy lines from the Install via APT option.
- 
+ <img width="945" height="456" alt="image" src="https://github.com/user-attachments/assets/981a210b-66b8-423f-b2d2-ec8663da4870" />
+
 After downloading the agent use the command playit setup  and you should get the link to setup.
- 
+ <img width="945" height="273" alt="image" src="https://github.com/user-attachments/assets/f739c275-b764-454a-a6b2-1e8334d77ec6" />
+
 Copy pasteing the link to browser you have to Claim the Agent by Loging in to an already excisting account or making a new one.
- 
+ <img width="945" height="284" alt="image" src="https://github.com/user-attachments/assets/04380cd8-9af3-4e95-a21f-21eb1802b7c0" />
+
 After creating the account asks you to verify details before continuing
- 
+ <img width="617" height="529" alt="image" src="https://github.com/user-attachments/assets/95aee2b4-7d48-4b00-9708-d24be9ef7c4c" />
+
  
 Create agent name and wait for the agent to finish setting up
- 
+ <img width="945" height="323" alt="image" src="https://github.com/user-attachments/assets/353ef207-c4d9-47de-910c-3b673aa8531d" />
+
 Start playit agent on terminal with the command sudo systemctl start playit
- 
+ <img width="945" height="60" alt="image" src="https://github.com/user-attachments/assets/da0090bd-1436-4745-9f87-7b62fec48fe8" />
+
 
 4.2.1	Creating tunnel
 
 After the agent has been installed and set up, we must create a tunnel for people to join our server
 (Make sure to verify your email!)
 Name your tunnel
- 
+ <img width="945" height="91" alt="image" src="https://github.com/user-attachments/assets/72a0bee4-c041-49f4-9059-47b8d299ea94" />
+
 Choose the tunnel type. For this documentation we’re choosing Minecraft Java
- 
+ <img width="329" height="497" alt="image" src="https://github.com/user-attachments/assets/13573e3f-6d09-4be8-94e6-c79b0fa16d13" />
+
 
 Since we’re using the Free Network people are routed to one of thir datacenters based on their ISP connection.
 Confirm your server’s origin
- 
+ <img width="945" height="253" alt="image" src="https://github.com/user-attachments/assets/25f26e46-530c-45af-bf0b-94a48b2b9366" />
+
 And now Create the tunnel
- 
+ <img width="803" height="233" alt="image" src="https://github.com/user-attachments/assets/2930c3c2-b301-41f5-907d-b03521d9eabc" />
+
 
 
 5	INSTALLING MINECRAFT JAVA EDITION
@@ -326,29 +337,39 @@ Java is a high-level, class-based, and object-oriented programming language desi
 5.2.1	Installing Java
 
 Install java using sudo apt install default-jdk  command
- 
+ <img width="945" height="120" alt="image" src="https://github.com/user-attachments/assets/43074ddc-5695-4f1e-8f01-ee1ae43556fe" />
+
 Create a server folder using mkdir command
- 
+ <img width="870" height="55" alt="image" src="https://github.com/user-attachments/assets/b1cb2312-7033-446a-aa7a-5c8450b55346" />
+
 Move to server folder using cd server command
- 
+ <img width="775" height="116" alt="image" src="https://github.com/user-attachments/assets/53fdea75-b3a4-4aa1-8e5a-e170c4d27996" />
+
 Search PaperMC which is a minecraft server software that is designed to significantly increase performanc, reduse lag and fix gameplay incosistencies. Search papermc.io and right click on Paper1.21.11 or whatever version you’re conna use and copy the link.
 Now to download this use command wget.
- 
+ <img width="945" height="68" alt="image" src="https://github.com/user-attachments/assets/590119d1-066d-4603-b38d-c8a02419a35a" />
+
 To confirm, that the file is downloaded use command ls to check.
- 
+ <img width="722" height="283" alt="image" src="https://github.com/user-attachments/assets/800be1c1-6134-4f15-b3e3-37b68c6244c4" />
+
 Rename installed file to server.jar
- 
+ <img width="945" height="92" alt="image" src="https://github.com/user-attachments/assets/6b5bd26a-47e7-4198-9e8d-44899c4835c0" />
+
 Create executable shortcut using nano start.sh
 Insert command to the file
 -Xmx8G means machine max ram is 8gb and -Xms4G is minimum ram
 CTRL + X and Y to save the file
- 
+ <img width="945" height="203" alt="image" src="https://github.com/user-attachments/assets/7275f171-e384-4b2c-90c3-bfc57d4cfa41" />
+
 Give the file executable permission using command chmod +x start.sh 
- 
+ <img width="945" height="50" alt="image" src="https://github.com/user-attachments/assets/ef1c59f9-0059-4cff-afff-6b65f16724bd" />
+
 Execute the start.sh file
- 
+ <img width="945" height="97" alt="image" src="https://github.com/user-attachments/assets/8fbd9562-c936-4679-a325-4a3047de54c0" />
+
 Accept eula agreement using command nano eula.txt set eula=false to true
- 
+ <img width="945" height="231" alt="image" src="https://github.com/user-attachments/assets/c39e3da4-80d9-48ec-a802-422eed135774" />
+
 
 5.2.2	Starting the server
 
@@ -356,13 +377,17 @@ Run the ./start.sh  again to generate the world
 To keep the server running in the background, install tmux using sudo apt install tmux
 Use command tmux new-session -t minecraft „name“ and now the instance wont be killed even if you close the SSH connection.
 Start the agent in terminal by using systemctl start playit
- 
+ <img width="945" height="101" alt="image" src="https://github.com/user-attachments/assets/f1e1cdbb-9d6f-45e4-9003-3eeef4d22601" />
+
 Now that’s the agent is running copy the public  address from playit.gg and insert this in Minecraft Multiplayer section
- 
+ <img width="945" height="110" alt="image" src="https://github.com/user-attachments/assets/f09ae20f-48c8-4677-a6e5-35e0abfd2640" />
+
 In Minecraft choose Multiplayer and Add Server and create name for your server and insert your public address
- 
+ <img width="945" height="706" alt="image" src="https://github.com/user-attachments/assets/b6d00ba7-d4c2-4695-940f-92f45a108efe" />
+
 And it works! Dont forget to start the server if it gives you can’t connect to server pop-up
- 
+ <img width="945" height="241" alt="image" src="https://github.com/user-attachments/assets/09831a53-e9fb-420f-9574-8dcf70c39528" />
+
 
 
 
@@ -382,9 +407,11 @@ Open the configuration file sudo nano /etc/zabbix/zabbix_agent2.conf , locate an
 •	Hostname: Set this to the exact name of the VM (this must match the name you use later in the Zabbix Web UI).
 
 After that save the file and restart the agent to apply changes
- 
+ <img width="1094" height="94" alt="image" src="https://github.com/user-attachments/assets/d64b2c69-49c4-45c9-847e-40a5bec88258" />
+
 The Zabbix Server communicates with the Agent via port 10050. You must open this on the target VM.
- 
+ <img width="945" height="188" alt="image" src="https://github.com/user-attachments/assets/c9825597-b944-4d6c-98f9-bc8543800809" />
+
 Now, head to your Zabbix Server dashboard in your browser.
 1.	Go to Data collection > Hosts.
 
@@ -401,7 +428,8 @@ Now, head to your Zabbix Server dashboard in your browser.
 o	Enter the IP address of the target VM.
 
 7.	Click Add.
- 
+ <img width="945" height="476" alt="image" src="https://github.com/user-attachments/assets/ee645fde-f0a3-4455-a8b6-c46982a06c31" />
+
 
 7	OPTIONAL: CREATING SSL CERTIFICATION FOR ZABBIX
 
@@ -415,9 +443,11 @@ This is optional for this documentation but highly recommended.
 
 You can generate a certificate and a private key directly on your Ubuntu server using OpenSSL.
 Create a directory for the keys
- 
+ <img width="945" height="222" alt="image" src="https://github.com/user-attachments/assets/1112bb5b-8696-48f9-8334-963881cb7786" />
+
 Run the following command. It will ask for information like Country and City—you can leave these blank or fill them in with whatever you like. 
- 
+ <img width="1003" height="388" alt="image" src="https://github.com/user-attachments/assets/22b8e48f-93dd-4788-91b4-5468e8e94e88" />
+
 •	days 365: The certificate will be valid for one year.
 
 •	rsa:2048: Standard encryption strength.
@@ -425,13 +455,16 @@ Run the following command. It will ask for information like Country and City—y
 Now, tell Nginx to look for those files when someone hits your server's IP via HTTPS.
 
 Edit the Zabbix Nginx config
+<img width="945" height="39" alt="image" src="https://github.com/user-attachments/assets/f6e3e6d3-062d-4aa8-b536-f9156be6d00d" />
  
 Modify the server block to look like this (replace the listen 80 section or add this alongside it)
- 
+ <img width="945" height="339" alt="image" src="https://github.com/user-attachments/assets/696c3bc0-0339-40c9-8276-e8c427642f7d" />
+
 Test and restart
- 
+ <img width="945" height="109" alt="image" src="https://github.com/user-attachments/assets/f1ca7456-d759-4c4f-bc9f-feedc66a1cff" />
+
 Now proceed to localhost (Zabbix) page and it should be https instead of http
- 
+ <img width="945" height="335" alt="image" src="https://github.com/user-attachments/assets/da24b404-3ac7-43f9-aa73-d6a76a339859" />
 
 
 
