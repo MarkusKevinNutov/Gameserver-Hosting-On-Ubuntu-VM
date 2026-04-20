@@ -104,8 +104,11 @@ Login to your machine
  <img width="945" height="511" alt="image" src="https://github.com/user-attachments/assets/ba0caa5e-d22a-4479-bd07-fff10033dbfe" />
 
 2.3.1	What is  Gnome?
+
 GNOME (GNU Network Object Model Environment) is the default graphical user interface (desktop environment) for Ubuntu. It provides the visual, interactive experience—windows, icons, top panel, and app launcher—allowing users to manage files, applications, and settings in a modern, clean, and distraction-free workspace.
+
 2.3.2	Installing Gnome
+
 First of all we are going to update our systems package list using command: sudo apt update.
 If you dont want to always insert your password after using sudo just log into the administrator account using command  sudo su.
  
