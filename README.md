@@ -22,6 +22,7 @@ Linux is the native home of modern DevOps tools. If you plan on scaling your com
 
 Simply put, Linux is free. Windows Server licenses can add a significant "tax" to your hosting costs. By choosing Linux, every dollar / euro of your budget goes directly toward better hardware—faster CPUs and NVMe storage—rather than software licensing.
  
+
 2	TESTING OUT IN VIRTUALBOX
 
 2.1	What is Virtualbox & Virtual Machine?
