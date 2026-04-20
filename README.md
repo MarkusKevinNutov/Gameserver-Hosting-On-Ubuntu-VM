@@ -68,32 +68,41 @@ Now that we have it setup, we need to insert the server iso file into this vm. F
 
  
 And in Network  set you’re Adapter 1 to Bridged Adapter.
- 
+ <img width="625" height="456" alt="image" src="https://github.com/user-attachments/assets/e6d1b033-7aad-4731-915a-42c9a1357727" />
+
 
 2.3	Install the machine
 
 Choose your language
- 
+ <img width="945" height="329" alt="image" src="https://github.com/user-attachments/assets/49625e54-4e2f-4299-90f7-50e7d343cf38" />
+
 For the type of installation choose only Ubuntu Server
- 
+ <img width="945" height="529" alt="image" src="https://github.com/user-attachments/assets/da73b545-ab45-4eff-b712-0ea21983ddbb" />
+
 It should give your machines DHCPv4 
- 
+ <img width="945" height="506" alt="image" src="https://github.com/user-attachments/assets/345f8ce8-be96-4074-a35e-045c77797322" />
+
 No need to put anything in Proxy configuration
 
  
 Dont change anything here since we already made a disk.
- 
+ <img width="945" height="498" alt="image" src="https://github.com/user-attachments/assets/62569446-737c-4828-a025-55363d8a3c4b" />
+
 Setup your server’s name, password etc...
- 
+ <img width="945" height="235" alt="image" src="https://github.com/user-attachments/assets/ba3033fd-7b03-40c5-b612-dbb26172c31d" />
+
 You can choose, if you want Ubuntu Pro since its free for personal use ( 1 to 5 machines)
- 
+ <img width="945" height="176" alt="image" src="https://github.com/user-attachments/assets/c2509b67-e651-41ef-a643-d92b321b6738" />
+
 Install OpenSSH server so you could use ssh  command to easily use the machine in windows cmd for example.
- 
+ <img width="945" height="127" alt="image" src="https://github.com/user-attachments/assets/fd24a96f-f2d1-4a15-877c-2f896949e246" />
+
 We’re not choosing any Featured server snaps, so you can just press Done.
 Now wait for the machine to install and press Reboot Now  when its done. 
 After its done rebooting press Enter on your keyboard
 Login to your machine
- 
+ <img width="945" height="511" alt="image" src="https://github.com/user-attachments/assets/ba0caa5e-d22a-4479-bd07-fff10033dbfe" />
+
 2.3.1	What is  Gnome?
 GNOME (GNU Network Object Model Environment) is the default graphical user interface (desktop environment) for Ubuntu. It provides the visual, interactive experience—windows, icons, top panel, and app launcher—allowing users to manage files, applications, and settings in a modern, clean, and distraction-free workspace.
 2.3.2	Installing Gnome
