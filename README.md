@@ -365,6 +365,7 @@ o	Enter the IP address of the target VM.
 7.1	What is SSL Certificate?
 
 An SSL certificate is a digital credential that authenticates a website's identity and enables an encrypted connection between a web server and a browser, ensuring the secure transmission of sensitive data via the TLS protocol.
+
 This is optional for this documentation but highly recommended.
 
 7.2	Setting up SSL
@@ -375,8 +376,11 @@ Create a directory for the keys
 Run the following command. It will ask for information like Country and City—you can leave these blank or fill them in with whatever you like. 
  
 •	days 365: The certificate will be valid for one year.
+
 •	rsa:2048: Standard encryption strength.
+
 Now, tell Nginx to look for those files when someone hits your server's IP via HTTPS.
+
 Edit the Zabbix Nginx config
  
 Modify the server block to look like this (replace the listen 80 section or add this alongside it)
