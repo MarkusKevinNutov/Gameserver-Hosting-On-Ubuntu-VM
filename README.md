@@ -431,6 +431,7 @@ o	Enter the IP address of the target VM.
  <img width="945" height="476" alt="image" src="https://github.com/user-attachments/assets/ee645fde-f0a3-4455-a8b6-c46982a06c31" />
 
 
+
 7	OPTIONAL: CREATING SSL CERTIFICATION FOR ZABBIX
 
 7.1	What is SSL Certificate?
