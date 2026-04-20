@@ -99,10 +99,15 @@ And now our Ubuntus Interface should look like this.
 And when you login
  
  
+
 3	SETTING UP MONITORING SOFTWARE
+
 3.1	What is monitoring software?
+
 Monitoring software is a category of tools designed to track, record, and analyze activity on computers, networks, or applications. It acts as a surveillance or diagnostic system, reporting data like user actions, bandwidth usage, or system uptime to administrators to ensure productivity, security, and performance.
+
 3.1.1	Zabbix & Installation
+
 Zabbix is a free, open-source enterprise-level monitoring solution designed to monitor IT infrastructure, including networks, servers, virtual machines, cloud services, and applications in real-time. It enables proactive IT management by collecting metrics via agents, SNMP, or APIs, providing alerting, visualization, and automated network discovery, often used to prevent downtime. 
 First things first go to this website:
 https://www.zabbix.com/download?zabbix=7.0&os_distribution=ubuntu&os_version=24.04&components=server_frontend_agent&db=mysql&ws=apache
@@ -116,18 +121,28 @@ After installing Zabbix repository we’re gonna have to also install Zabbix ser
 
 
 
+
 3.2	What is Database?
+
 A database is a structured, electronically stored collection of data designed for rapid searching, management, and updating. It acts as a digital repository, organizing information into formats like tables (rows/columns) or documents to allow multiple users to efficiently access, secure, and manipulate data.
+
 3.2.1	Why Use a Database?
+
 Databases are essential for modern applications, including online banking, e-commerce stores, social media platforms, and large-scale, enterprise applications. They offer significant advantages over simple file storage, such as improved data integrity, simultaneous multi-user access, enhanced security, and rapid retrieval.
+
 3.2.2	Before installing MySQL
+
 Separate your VMs. Host the Minecraft Server and Zabbix Agent on one instance, and the Zabbix Server and SQL Database on a second instance.
+
 The Reasoning:
+
 •	Performance: Minecraft relies on consistent "ticks." Database housekeeping (SQL writes/logs) causes micro-stuttering and TPS drops if hosted on the same CPU or Disk.
 •	Stability: If the monitoring database fills the disk or crashes the OS, your game world remains online and uncorrupted.
 •	Simplicity: Using a lightweight Zabbix Agent on the game server captures all necessary metrics (RAM, CPU, player counts) without the heavy resource footprint of the full Zabbix suite.
 
+
 The Goal:
+
 Zero-lag monitoring. You get professional-grade observability without sacrificing the player experience.
 
 3.2.3	MySQL & Installation
@@ -166,9 +181,13 @@ Use CTRL+W to easily find DBPassword location in this file
 Remove # from it and insert password that you made in mysql
  
 Use CTRL+X to save and exit the file
+
 3.3	What is Web Server?
+
 A web server is a system comprising computer hardware and software that stores website files (HTML, CSS, images, JS) and delivers them to users over the internet via HTTP/HTTPS. It acts as a digital librarian, receiving requests from browsers (clients) and serving the requested web pages.
+
 3.3.1	Nginx & Installation
+
 NGINX (pronounced "engine-x") is a high-performance, open-source web server, reverse proxy, load balancer, and HTTP cache. Designed for maximum speed and stability, it handles thousands of concurrent connections efficiently using an event-driven architecture, making it ideal for high-traffic websites and reducing server load.
 (Monitoring VM) In ubuntu browser search up localhost and you should get this
  
@@ -199,11 +218,17 @@ Login to Zabbix
  
 Zabbix is now setup and working
  
+
 4	SETTING UP THE AGENT
+
+
 4.1	What is Playit.gg?
+
 Playit.gg is a free, popular networking tool that allows you to host online game servers (like Minecraft, Valheim, or Terraria) from your own computer without needing to configure router port forwarding or share your public IP address. It creates a secure tunnel that acts as a proxy, making local servers accessible to friends over the internet.
 The tool is highly regarded for being lightweight and user-friendly, providing an alternative for those wanting to host games privately without paying for a hosting provider.
+
 4.2	Setting up Playit.gg
+
 Open up Firefox or whatever browser you’re using in ubuntu and search playit.gg
  
 Go to Downloads and copy lines from the Install via APT option.
@@ -219,7 +244,9 @@ Create agent name and wait for the agent to finish setting up
  
 Start playit agent on terminal with the command sudo systemctl start playit
  
+
 4.2.1	Creating tunnel
+
 After the agent has been installed and set up, we must create a tunnel for people to join our server
 (Make sure to verify your email!)
 Name your tunnel
@@ -233,12 +260,18 @@ Confirm your server’s origin
 And now Create the tunnel
  
 
+
 5	INSTALLING MINECRAFT JAVA EDITION
+
 5.1	What is Minecraft?
 Minecraft is a sandbox game developed and published by the Swedish company Mojang Studios. Following its initial public alpha release as an early access title in 2009, it was formally released in 2011 for personal computers. The game has since been ported to numerous platforms, including mobile devices and various video game consoles.
+
 5.2	 Java
+
 Java is a high-level, class-based, and object-oriented programming language designed by Sun Microsystems in 1995 to have as few implementation dependencies as possible. It is famous for its "Write Once, Run Anywhere" (WORA) principle, where compiled Java code runs on all platforms supporting the Java Virtual Machine (JVM).
+
 5.2.1	Installing Java
+
 Install java using sudo apt install default-jdk  command
  
 Create a server folder using mkdir command
@@ -263,7 +296,9 @@ Execute the start.sh file
  
 Accept eula agreement using command nano eula.txt set eula=false to true
  
+
 5.2.2	Starting the server
+
 Run the ./start.sh  again to generate the world
 To keep the server running in the background, install tmux using sudo apt install tmux
 Use command tmux new-session -t minecraft „name“ and now the instance wont be killed even if you close the SSH connection.
@@ -278,13 +313,18 @@ And it works! Dont forget to start the server if it gives you can’t connect to
 
 
 
+
 6	VIRTUAL MACHINE MONITORING
+
 Now, that our server is running, we want zabbix to monitor player count, TPS, entities, memory leaks and etc.
 You need to tell the VM which server is allowed to request data.
+
 Open the configuration file sudo nano /etc/zabbix/zabbix_agent2.conf , locate and configure following parameters:
+
 •	Server: Set this to the IP address of your Zabbix Server.
 •	ServerActive: Set this to the IP address of your Zabbix Server.
 •	Hostname: Set this to the exact name of the VM (this must match the name you use later in the Zabbix Web UI).
+
 After that save the file and restart the agent to apply changes
  
 The Zabbix Server communicates with the Agent via port 10050. You must open this on the target VM.
@@ -299,11 +339,16 @@ Now, head to your Zabbix Server dashboard in your browser.
 o	Enter the IP address of the target VM.
 7.	Click Add.
  
+
 7	OPTIONAL: CREATING SSL CERTIFICATION FOR ZABBIX
+
 7.1	What is SSL Certificate?
+
 An SSL certificate is a digital credential that authenticates a website's identity and enables an encrypted connection between a web server and a browser, ensuring the secure transmission of sensitive data via the TLS protocol.
 This is optional for this documentation but highly recommended.
+
 7.2	Setting up SSL
+
 You can generate a certificate and a private key directly on your Ubuntu server using OpenSSL.
 Create a directory for the keys
  
