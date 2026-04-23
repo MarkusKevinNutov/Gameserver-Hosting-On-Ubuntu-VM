@@ -429,7 +429,8 @@ Create a new script directory in /urs/local/bin and name the  script file to mc_
 
 Write the script:
 
-<img width="1820" height="978" alt="image" src="https://github.com/user-attachments/assets/21d8e2ac-e026-4b23-8e77-6f69472e9496" />
+<img width="1815" height="874" alt="image" src="https://github.com/user-attachments/assets/9d419e53-082f-4a54-a6c6-32b7b75421a4" />
+
 
 Make it executable: sudo chmod +x /usr/local/bin/mc_monitor.sh
 
@@ -439,7 +440,6 @@ Make it executable: sudo chmod +x /usr/local/bin/mc_monitor.sh
 
 Now, we tell the Zabbix Agent that these new "keys" exist. Edit your agent configuration:
 
-<img width="1815" height="874" alt="image" src="https://github.com/user-attachments/assets/22aacbf4-f8aa-46df-b820-cd216eab495c" />
 
 
 Add these UserParameters at the very bottom:
