@@ -451,23 +451,66 @@ Restart the agent: sudo systemctl restart zabbix-agent
 
 6.5. Setting up the Zabbix Web UI
 
-Finally, go to your Zabbix Browser Dashboard to create the items for your Ubuntu Host:
+Step 1: Tell Zabbix what "Gauges" to look at (Items)
+You need to tell Zabbix to start watching the specific numbers we set up earlier (TPS, Players, and RAM).
 
-Create Items: For each UserParameter you added, create a corresponding "Item" in Zabbix.
+Open your Zabbix website and go to Data Collection > Hosts.
 
-Key: mc.tps (Type: Numeric Float)
+Find your Ubuntu server in the list and click the word Items next to it.
 
-Key: mc.players (Type: Numeric Unsigned)
+Click the blue Create item button at the top right.
 
-Key: mc.ram (Type: Numeric Unsigned, set units to B)
+Fill it out for TPS (Lag):
 
-Create Triggers: This is where the magic happens. Set alerts for:
+Name: Minecraft Lag (TPS)
 
-Low TPS: {host:mc.tps.last()}<16 (The server is struggling).
+Key: mc.tps (This must match exactly what you typed in the black-and-white terminal earlier).
 
-High RAM: {host:mc.ram.last()}>7G (Adjust based on your allocated RAM).
+Type of information: Numeric (float) — This just means "a number with a decimal point."
 
-Create a Dashboard: Add a "Graph" widget to see the correlation between player count and TPS drops.
+Click Add.
+
+Repeat this for "Players Online":
+
+Name: Minecraft Players
+
+Key: mc.players
+
+Type of information: Numeric (unsigned) — This just means "a whole number."
+
+Step 2: Set the "Check Engine" Lights (Triggers)
+A "Trigger" is just a rule that says: "If this number looks bad, send me an alert."
+
+Click on the Triggers tab (it’s right next to "Items" at the top).
+
+Click Create trigger.
+
+To catch lag:
+
+Name: Server is Lagging!
+
+Severity: Average (or High if you're worried).
+
+Expression: Click "Add" and find your mc.tps item. Set it so if the result is < 16, the alarm goes off. (Perfect Minecraft speed is 20).
+
+Click Add.
+
+Step 3: Make it Pretty (Dashboards)
+This is the part you’ll actually look at while your friends are playing.
+
+Go to Monitoring > Dashboards.
+
+Click Create dashboard (give it a name like "Minecraft Status").
+
+Click Add widget and choose Graph.
+
+Configuration:
+
+Give the graph a name (e.g., "Server Performance").
+
+In the Data set section, search for your Minecraft items.
+
+Click Add, then click Save changes on the dashboard.
 
 
 7	OPTIONAL: CREATING SSL CERTIFICATION FOR ZABBIX
