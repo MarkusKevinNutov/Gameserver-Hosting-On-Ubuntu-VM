@@ -470,13 +470,13 @@ Type of information: Numeric (float) — This just means "a number with a decima
 
 Click Add.
 
-Repeat this for "Players Online":
+<img width="1252" height="730" alt="image" src="https://github.com/user-attachments/assets/77b35383-fc78-44d6-8e90-70c8d221eab4" />
 
-Name: Minecraft Players
+Repeat this for everything else under thius table:
 
-Key: mc.players
+<img width="634" height="285" alt="image" src="https://github.com/user-attachments/assets/c61d24cd-4640-4cee-97e1-ba3d301d108c" />
 
-Type of information: Numeric (unsigned) — This just means "a whole number."
+
 
 Step 2: Set the "Check Engine" Lights (Triggers)
 A "Trigger" is just a rule that says: "If this number looks bad, send me an alert."
@@ -495,22 +495,28 @@ Expression: Click "Add" and find your mc.tps item. Set it so if the result is < 
 
 Click Add.
 
+<img width="1623" height="864" alt="image" src="https://github.com/user-attachments/assets/d5cd27b7-d95e-42cc-ba78-b5224c233a22" />
+
+Also make sure, that the Item "Type" is Zabbix agent (active).
+
+
 Step 3: Make it Pretty (Dashboards)
-This is the part you’ll actually look at while your friends are playing.
+
+This is the satisfying part where you see the live data.
 
 Go to Monitoring > Dashboards.
 
-Click Create dashboard (give it a name like "Minecraft Status").
+Click Create dashboard (or edit an existing one).
 
-Click Add widget and choose Graph.
+Add a Widget:
 
-Configuration:
+Type: Graph.
 
-Give the graph a name (e.g., "Server Performance").
+Name: Minecraft Performance.
 
-In the Data set section, search for your Minecraft items.
+Data set: Add mc.tps and mc.players.
 
-Click Add, then click Save changes on the dashboard.
+Pro Tip: Use a "Stacked" graph for memory usage, but a "Line" graph for TPS so you can see dips clearly.
 
 
 7	OPTIONAL: CREATING SSL CERTIFICATION FOR ZABBIX
