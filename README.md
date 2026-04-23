@@ -392,43 +392,23 @@ And it works! Dont forget to start the server if it gives you can’t connect to
 
 
 
-6	VIRTUAL MACHINE MONITORING
+6	Zabbix Server Monitoring
 
-Now, that our server is running, we want zabbix to monitor player count, TPS, entities, memory leaks and etc.
-You need to tell the VM which server is allowed to request data.
+To monitor a Minecraft server with Zabbix on Ubuntu, you need to bridge the gap between the Minecraft Java process and the Zabbix Agent. Since Minecraft doesn't natively speak to Zabbix, the most reliable method is using RCON (Remote Console) to pull metrics via custom scripts.
 
-Open the configuration file sudo nano /etc/zabbix/zabbix_agent2.conf , locate and configure following parameters:
+1. Enable RCON on Your Minecraft Server
+Open your server.properties file and ensure RCON is enabled so you can query the server externally.
 
+# In server.properties
+enable-rcon=true
+rcon.port=25575
+rcon.password=your_secure_password
 
-•	Server: Set this to the IP address of your Zabbix Server.
+Restart your server after saving.
 
-•	ServerActive: Set this to the IP address of your Zabbix Server.
+2. Install an RCON Client
+You need a way for Ubuntu to send commands to the server. mcrcon is the industry standard for this.
 
-•	Hostname: Set this to the exact name of the VM (this must match the name you use later in the Zabbix Web UI).
-
-After that save the file and restart the agent to apply changes
- <img width="1094" height="94" alt="image" src="https://github.com/user-attachments/assets/d64b2c69-49c4-45c9-847e-40a5bec88258" />
-
-The Zabbix Server communicates with the Agent via port 10050. You must open this on the target VM.
- <img width="945" height="188" alt="image" src="https://github.com/user-attachments/assets/c9825597-b944-4d6c-98f9-bc8543800809" />
-
-Now, head to your Zabbix Server dashboard in your browser.
-1.	Go to Data collection > Hosts.
-
-2.	Click Create host in the top right.
-
-3.	Host name: Must exactly match the Hostname you typed in the config file.
-
-4.	Templates: Search for and select Linux by Zabbix agent.
-
-5.	Host groups: Select a group (e.g., Virtual machines or Linux servers).
-
-6.	Interfaces: Click Add > Agent.
-
-o	Enter the IP address of the target VM.
-
-7.	Click Add.
- <img width="945" height="476" alt="image" src="https://github.com/user-attachments/assets/ee645fde-f0a3-4455-a8b6-c46982a06c31" />
 
 
 
