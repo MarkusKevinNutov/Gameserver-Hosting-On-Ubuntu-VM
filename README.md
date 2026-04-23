@@ -399,15 +399,26 @@ To monitor a Minecraft server with Zabbix on Ubuntu, you need to bridge the gap 
 1. Enable RCON on Your Minecraft Server
 Open your server.properties file and ensure RCON is enabled so you can query the server externally.
 
-# In server.properties
+In server.properties
+
 enable-rcon=true
+
 rcon.port=25575
+
 rcon.password=your_secure_password
 
 Restart your server after saving.
 
 2. Install an RCON Client
+
 You need a way for Ubuntu to send commands to the server. mcrcon is the industry standard for this.
+
+Update your machine with sudo apt update
+
+After updating install mcrcon
+
+<img width="719" height="37" alt="image" src="https://github.com/user-attachments/assets/a8ae910a-7165-4937-98b2-82010e810a3b" />
+
 
 
 
