@@ -392,11 +392,11 @@ And it works! Dont forget to start the server if it gives you can’t connect to
 
 
 
-6	Zabbix Server Monitoring
+#6	Zabbix Server Monitoring
 
 To monitor a Minecraft server with Zabbix on Ubuntu, you need to bridge the gap between the Minecraft Java process and the Zabbix Agent. Since Minecraft doesn't natively speak to Zabbix, the most reliable method is using RCON (Remote Console) to pull metrics via custom scripts.
 
-1. Enable RCON on Your Minecraft Server
+6.1. Enable RCON on Your Minecraft Server
 Open your server.properties file and ensure RCON is enabled so you can query the server externally.
 
 In server.properties
@@ -409,7 +409,7 @@ rcon.password=your_secure_password
 
 Restart your server after saving.
 
-2. Install an RCON Client
+6.2. Install an RCON Client
 
 You need a way for Ubuntu to send commands to the server. mcrcon is the industry standard for this.
 
@@ -419,8 +419,55 @@ After updating install mcrcon
 
 <img width="719" height="37" alt="image" src="https://github.com/user-attachments/assets/a8ae910a-7165-4937-98b2-82010e810a3b" />
 
+6.3. Create the Monitoring Script
 
+Create a script (e.g., /usr/local/bin/mc_stats.sh) that Zabbix will run to fetch data. This script uses mcrcon to ask for TPS and entity counts.
 
+Create a new script directory in /urs/local/bin and name the  script file to mc_stats.sh.
+
+<img width="964" height="174" alt="image" src="https://github.com/user-attachments/assets/5f8b7d81-1ec6-45e1-976d-5de0a5037f74" />
+
+Write the script:
+
+<img width="1820" height="978" alt="image" src="https://github.com/user-attachments/assets/21d8e2ac-e026-4b23-8e77-6f69472e9496" />
+
+Make it executable: sudo chmod +x /usr/local/bin/mc_monitor.sh
+
+<img width="1171" height="65" alt="image" src="https://github.com/user-attachments/assets/d878cb1a-c5fa-400c-8af8-2de6db504f46" />
+
+6.4. Connect Zabbix Agent to the Script
+
+Now, we tell the Zabbix Agent that these new "keys" exist. Edit your agent configuration:
+
+<img width="863" height="46" alt="image" src="https://github.com/user-attachments/assets/4de82636-9bd3-46da-b220-42a8273d8d1a" />
+
+Add these UserParameters at the very bottom:
+
+<img width="1286" height="284" alt="image" src="https://github.com/user-attachments/assets/477f4f8a-4e90-4b6e-abc6-17606aeb4d84" />
+
+The memory command calculates the "Resident Set Size" (actual physical RAM usage) of your Java process in bytes.
+
+Restart the agent: sudo systemctl restart zabbix-agent
+
+6.5. Setting up the Zabbix Web UI
+
+Finally, go to your Zabbix Browser Dashboard to create the items for your Ubuntu Host:
+
+Create Items: For each UserParameter you added, create a corresponding "Item" in Zabbix.
+
+Key: mc.tps (Type: Numeric Float)
+
+Key: mc.players (Type: Numeric Unsigned)
+
+Key: mc.ram (Type: Numeric Unsigned, set units to B)
+
+Create Triggers: This is where the magic happens. Set alerts for:
+
+Low TPS: {host:mc.tps.last()}<16 (The server is struggling).
+
+High RAM: {host:mc.ram.last()}>7G (Adjust based on your allocated RAM).
+
+Create a Dashboard: Add a "Graph" widget to see the correlation between player count and TPS drops.
 
 
 7	OPTIONAL: CREATING SSL CERTIFICATION FOR ZABBIX
