@@ -451,6 +451,14 @@ The memory command calculates the "Resident Set Size" (actual physical RAM usage
 
 Restart the agent: sudo systemctl restart zabbix-agent
 
+If you coma across a problem with rcon, you need to download mcrcon. Use these commands:
+
+<img width="651" height="734" alt="image" src="https://github.com/user-attachments/assets/5625d748-addb-40f2-a4af-f5be8cd90797" />
+
+
+
+
+
 6.5. Setting up the Zabbix Web UI
 
 Step 1: Tell Zabbix what "Gauges" to look at (Items)
