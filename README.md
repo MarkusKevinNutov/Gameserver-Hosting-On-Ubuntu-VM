@@ -439,7 +439,8 @@ Make it executable: sudo chmod +x /usr/local/bin/mc_monitor.sh
 
 Now, we tell the Zabbix Agent that these new "keys" exist. Edit your agent configuration:
 
-<img width="863" height="46" alt="image" src="https://github.com/user-attachments/assets/4de82636-9bd3-46da-b220-42a8273d8d1a" />
+<img width="1815" height="874" alt="image" src="https://github.com/user-attachments/assets/22aacbf4-f8aa-46df-b820-cd216eab495c" />
+
 
 Add these UserParameters at the very bottom:
 
