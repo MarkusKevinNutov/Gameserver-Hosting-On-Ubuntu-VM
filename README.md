@@ -443,7 +443,8 @@ Now, we tell the Zabbix Agent that these new "keys" exist. Edit your agent confi
 
 Add these UserParameters at the very bottom:
 
-<img width="1201" height="239" alt="image" src="https://github.com/user-attachments/assets/1ffd6446-6521-480f-a8aa-66e6d37a1251" />
+<img width="1227" height="264" alt="image" src="https://github.com/user-attachments/assets/a276aae6-7262-48cf-8545-9732447b8771" />
+
 
 
 The memory command calculates the "Resident Set Size" (actual physical RAM usage) of your Java process in bytes.
