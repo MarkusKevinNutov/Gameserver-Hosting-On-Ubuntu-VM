@@ -1,6 +1,12 @@
 # Gameserver-Hosting-On-Ubuntu
 This project provides a comprehensive, enterprise-grade guide for hosting a high-performance Minecraft server on Ubuntu 24.04 LTS. It focuses on maximizing resource efficiency, professional-grade monitoring, and secure networking without the need for traditional port forwarding.
 
+
+## Requirements
+
+- Virtual Box 
+- Ubuntu Server iso ( https://ubuntu.com/download/server )
+
 1	WHY LINUX IS THE STANDARD FOR MINECRAFT HOSTING?
 
 Running a Minecraft server on Linux provides a leaner, more stable environment compared to Windows. By eliminating the graphical overhead and prioritizing process efficiency, Linux ensures that your hardware is focused on one thing: maintaining 20 Ticks Per Second (TPS).
